@@ -9,7 +9,7 @@ auto sieve(int n) {
     }
     for (int i = 3; i * i <= n; i += 2) {
         if (prime[i]) {
-            for (int j = i * i; j <= n; j += i) {
+            for (int j = i * i; j <= n; j += (i << 1)) {
                 prime[j] = false;
             }
         }
