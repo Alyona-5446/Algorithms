@@ -54,7 +54,7 @@ int prime_inverse(int a, int p) {
     return binpow(a, p - 2);
 }
 
-int coprime_gcd_inverse(int a, int M) {
+int gcd_inverse(int a, int M) {
     int x, y;
     expanded_gcd(a, M, x, y);
     return (x % M + M) % M;
