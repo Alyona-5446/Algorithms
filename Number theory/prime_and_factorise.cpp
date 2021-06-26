@@ -21,19 +21,19 @@ auto factorise(int n) {
     std::vector<std::pair<int, int>> factors;
     if (!(n & 1)) {
         int p = 0;
-        while (!(n & 1)) {
+        do {
             n >>= 1;
             ++p;
-        }
+        } while (!(n & 1));
         factors.emplace_back(2, p);
     }
     for (int i = 3; i * i <= n; i += 2) {
         if (!(n % i)) {
             int p = 0;
-            while (!(n % i)) {
+            do {
                 n /= i;
                 ++p;
-            }
+            } while (!(n % i));
             factors.emplace_back(i, p);
         }
     }
