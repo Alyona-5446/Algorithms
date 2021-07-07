@@ -153,13 +153,14 @@ bool next_bbs(std::string& s) {
 int bbs_index(std::string& s) {
     int n = s.size() / 2, idx = 0;
     std::vector<std::vector<int>> d(2 * n + 1, std::vector<int>(2 * n + 1));
-    d[0][0] = 1;
-    for (int i = 1; i <= 2 * n; ++i) {
+    for (int i = 0; i <= 2 * n; ++i) {
+        d[i][i] = 1;
+    }
+    for (int i = 2; i <= 2 * n; ++i) {
         d[i][0] = d[i - 1][1];
-        for (int j = 1; j < 2 * n; ++j) {
+        for (int j = 1 + !(i & 1); j < i; j += 2) {
             d[i][j] = d[i - 1][j - 1] + d[i - 1][j + 1];
         }
-        d[i][2 * n] = d[i - 1][2 * n - 1];
     }
     for (int i = 0, balance = 0; i < 2 * n; ++i) {
         if (s[i] == '(') {
@@ -174,13 +175,14 @@ int bbs_index(std::string& s) {
 
 auto kth_bbs(int n, int k) { //1-indexed
     std::vector<std::vector<int>> d(2 * n + 1, std::vector<int>(2 * n + 1));
-    d[0][0] = 1;
-    for (int i = 1; i <= 2 * n; ++i) {
+    for (int i = 0; i <= 2 * n; ++i) {
+        d[i][i] = 1;
+    }
+    for (int i = 2; i <= 2 * n; ++i) {
         d[i][0] = d[i - 1][1];
-        for (int j = 1; j < 2 * n; ++j) {
+        for (int j = 1 + !(i & 1); j < i; j += 2) {
             d[i][j] = d[i - 1][j - 1] + d[i - 1][j + 1];
         }
-        d[i][2 * n] = d[i - 1][2 * n - 1];
     }
     std::string bbs;
     for (int i = 0, balance = 0; i < 2 * n; ++i) {
