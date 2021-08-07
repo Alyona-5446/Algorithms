@@ -82,7 +82,7 @@ public:
         }
         set_y(op(tree[2 * kx + 1][y_sz - 1 + y], tree[2 * kx + 2][y_sz - 1 + y]), y, kx);
     }
-    T get_op(int x1, int x2, int y1, int y2, int lx = 0, int rx = -1, int kx = 0) {
+    T get_op(int x1, int x2, int y1, int y2, int lx = 0, int rx = -1, int kx = 0) const {
         if (rx == -1) {
             rx = x_sz;
         }
