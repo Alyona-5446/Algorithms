@@ -66,7 +66,7 @@ public:
             }
         }
     }
-    void set_value(int val, int x, int y, int lx = 0, int rx = -1, int kx = 0) {
+    void set_value(T val, int x, int y, int lx = 0, int rx = -1, int kx = 0) {
         if (rx == -1) {
             rx = x_sz;
         }
