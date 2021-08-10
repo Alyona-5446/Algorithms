@@ -73,6 +73,7 @@ class ImplicitTreap {
     }
     static void traverse(Ptr tree) {
         if (tree) {
+            push(tree);
             traverse(tree->left);
             std::cout << tree->val << ' ';
             traverse(tree->right);
