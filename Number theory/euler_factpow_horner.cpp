@@ -9,7 +9,7 @@ int phi(int n) {
         }
         ans >>= 1;
     }
-    for (int i = 0; i * i <= n; i += 2) {
+    for (int i = 3; i * i <= n; i += 2) {
         if (!(n % i)) {
             while (!(n % i)) {
                 n /= i;
