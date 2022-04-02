@@ -65,6 +65,7 @@ auto SPFA(const Graph& G, int src) {
                 d[v] = d[u] + c;
                 if (!used[v]) {
                     q.push(v);
+                    used[v] = true;
                 }
             }
         }
