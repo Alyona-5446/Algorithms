@@ -1,2 +1,2 @@
-#Algorithms
+# Algorithms
 Competitive programming algorithms in C++ 
